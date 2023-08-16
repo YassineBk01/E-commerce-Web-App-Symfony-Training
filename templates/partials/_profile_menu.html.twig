@@ -1,0 +1,23 @@
+<div class="user">
+    <div class="dropdown">
+        {% if app.user is null %}
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account</a>
+            <div class="dropdown-menu">
+                <a href="{{ url('app_login') }}" class="dropdown-item">Login</a>
+                <a href="{{ url('app_register') }}" class="dropdown-item">Register</a>
+            </div>
+        {% else %}
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Welcome, {{ app.user.username }}
+            </a>
+            <div class="dropdown-menu">
+                <a href="{{ url('app_profile') }}" class="dropdown-item">Profile</a>
+                <a href="{{ url('app_logout') }}" class="dropdown-item">Logout</a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="cart">
+        <i class="fa fa-cart-plus"></i>
+        <span>({{ cartItemCount }})</span>
+    </div>
+</div>
